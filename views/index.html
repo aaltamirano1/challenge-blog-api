@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="description" content="Shopping and to do lists">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>All Posts</h1>
+      </header>
+      <main>
+        <section>
+          <form>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title">
+            <label for="author-name">Author Name</label>
+            <input type="text" name="author-name" id="author-name">
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date">
+            <label for="blog-post-entry">Blog Post</label>
+            <textarea type="text" name="blog-post-entry" id="js-new-post"></textarea>
+            <button type="submit">Post</button>
+          </form>
+        </section>
+        <section>
+          <ul class="blog-posts js-blog-posts">
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
