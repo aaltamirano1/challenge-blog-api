@@ -4,6 +4,6 @@ deploy:
   provider: heroku
   api_key:
     secure: YRlj6A4u1By6cM2DknSPaZ9rHsNiil8C3Y73Z54IS6DHikr88Yaa6yaLhsTtZAI27wxkDrmZODgrBST46jYHQiWyKABVOlYM3W63JgMO4jSUYiVFHegvLjKrGA6XtDkh9d7hx7A2Khkwb2hqcr0FwsGCBDYlJ/20hy9v/4SiQ2ON3yDSLk2hSrD5dFxZGfg7+u9ti2D90hqss7TdQt1MLG6tMlprfLKEUi0eRm5ipmLln7JUBiN/mv3h38cUar5uS49MSQBcguIWDw5jLH574I4aprEKuN9CUQZf4zMoGOVScho1IFTyolFcNk1F28E//YLNQIawzE8aMzWUHfz/EAoIKy/Jtivf5UDHEJq6h1r35JWAhrm/BYMdgtMuZjOYftzm3WhOseKi+aq0eO6SfIC6z3NdxNw5JD+SqTtAuffhlftmS4JMw/LphRVcftYauF8EIjMRlFdD8bPWig1doaGfNdqCyC/CmTECtAt64V2BfT3onDBzhBfnu4n8DdO3rQnUPvRER6Fyxwt8e6qAnzxS4rnPcrCYHaKvcVF0NtrElTtvsX+NvRwSZJXfW0K+WLpc/5SWJBTtA3pqSDYOri3nKZdBdaQ1E+wEW+RnWlv2zlWvkhSUx7PyiioLRB7Ft+KSlFzWr6HbnwgA/cCbvLho7mk5OY8rha43G5ZOFDQ=
-  app: challenge-blog-api
+  app: lit-lowlands-51902
   on:
     repo: aaltamirano1/challenge-blog-api
