@@ -23,6 +23,12 @@ router.get('/', (req, res)=>{
   });
 });
 
+router.get('/:id', (req, res)=>{
+	BlogPost
+	.findById(req.params.id)
+	.then(post=>res.json(post.serialize()));
+});
+
 router.post('/', jsonParser, (req, res)=>{
 	const requiredFields = ['title', 'content', 'author'];
 	requiredFields.forEach(field => {
