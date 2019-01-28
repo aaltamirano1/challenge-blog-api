@@ -2,7 +2,6 @@ var blogPostTemplate =
   '<li class="js-blog-post">' +
   '<h2 class="js-blog-post-title"></h2>' +
   '<h3 class="js-blog-post-author"></h3>' +
-  '<p class="js-blog-post-date"></p>' +
   '<p class="js-blog-post-content"></p>' +
   '<button class="js-blog-post-delete">' +
   '<span class="button-label"><i class="fas fa-trash-alt"></i></span>' +
@@ -14,8 +13,9 @@ var BLOG_POST_URL = serverBase + "blog-posts";
 
 function getAndDisplayBlogPosts() {
   console.log("Retrieving blog posts");
-  $.getJSON(BLOG_POST_URL, function(posts) {
+  $.getJSON(BLOG_POST_URL, function(res) {
     console.log("Rendering blog posts");
+    const posts = res.posts;
     var postElements = posts.map(function(post) {
       var element = $(blogPostTemplate);
       element.attr("id", post.id);
@@ -23,10 +23,6 @@ function getAndDisplayBlogPosts() {
       postTitle.text(post.title);
       var postAuthor = element.find(".js-blog-post-author");
       postAuthor.text(post.author);
-      var postDate = element.find(".js-blog-post-date");
-      var parsedDate = new Date(post.publishDate);
-      var dateText = `${parsedDate.getMonth()+1}/${parsedDate.getDate()}/${parsedDate.getFullYear()}`;
-      postDate.text(dateText);
       var postContent = element.find(".js-blog-post-content");
       postContent.text(post.content);
       return element;
@@ -53,14 +49,16 @@ function handleAddBlogPost() {
   $("form").submit(function(e) {
     e.preventDefault();
     var title = $("#title").val();
-    var author = $("#author-name").val();
-    var date = $("#date").val();
+    var authorFirstname = $("#author-firstname").val();
+    var authorLastname = $("#author-lastname").val();
     var content = $("#js-new-post").val();
     addBlogPost({
       title: title,
       content: content,
-      author: author,
-      publishDate: date
+      author: {
+        firstName: authorFirstname,
+        lastName: authorLastname
+      }
     });
   });
 }
