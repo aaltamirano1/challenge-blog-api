@@ -16,7 +16,11 @@ router.get('/', (req, res)=>{
 	.find()
 	.then(posts=>{
 		res.json({posts: posts.map(post => post.serialize())});
-	});
+	})
+	.catch(err => {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
+  });
 });
 
 router.post('/', jsonParser, (req, res)=>{
@@ -34,8 +38,11 @@ router.post('/', jsonParser, (req, res)=>{
     	author: req.body.author,
     	content: req.body.content
 		})
-		.then(post=>res.status(201).json(post.serialize()));
-	
+		.then(post=>res.status(201).json(post.serialize()))
+		.catch(err => {
+      console.error(err);
+      res.status(500).json({ message: "Internal server error" });
+    });
 });
 
 router.put('/:id', jsonParser, (req, res)=>{
@@ -67,7 +74,11 @@ router.put('/:id', jsonParser, (req, res)=>{
 		.then(()=>{
 			console.log(`Updated item with id ${req.params.id}.`);
 			res.status(204).end();
-		});
+		})
+		.catch(err => {
+      console.error(err);
+      res.status(500).json({ message: "Internal server error" });
+    });
 });
 
 router.delete('/:id', (req, res)=>{
@@ -76,6 +87,10 @@ router.delete('/:id', (req, res)=>{
 			console.log(`Deleted item with id ${req.params.id}.`);
 			res.status(204).end();
 		})
+		.catch(err => {
+      console.error(err);
+      res.status(500).json({ message: "Internal server error" });
+    });
 });
 
 module.exports = router;
