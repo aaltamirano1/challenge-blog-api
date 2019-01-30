@@ -18,7 +18,7 @@ describe('Blog Posts', function(){
 	it('Should list blog posts on GET', function(){
 		return chai
 			.request(app)
-			.get('/blog-posts')
+			.get('/posts')
 			.then(function(res){
 				expect(res).to.be.json;
 				expect(res.body).to.be.a('array');
@@ -28,7 +28,7 @@ describe('Blog Posts', function(){
 		const newPost = { title: "Test Post", content: "A very useful feature in Mocha is describe(), a function that allows you to better control your tests by grouping them...", author: "Anonymous", publishDate: Date.now()};
 		return chai
 			.request(app)
-			.post('/blog-posts')
+			.post('/posts')
 			.send(newPost)
 			.then(function(res){
 				expect(res).to.be.json;
@@ -43,12 +43,12 @@ describe('Blog Posts', function(){
 		return (
 			chai
 				.request(app)
-				.get('/blog-posts')
+				.get('/posts')
 				.then(function(res){
 					updateData.id = res.body[0].id;
 					return chai
 						.request(app)
-						.put(`/blog-posts/${updateData.id}`)
+						.put(`/posts/${updateData.id}`)
 						.send(updateData);
 				})
 				.then(function(res){
@@ -61,7 +61,7 @@ describe('Blog Posts', function(){
 		return (
 			chai
 				.request(app)
-				.get('/blog-posts')
+				.get('/posts')
 				.then(function(res){
 					return chai.request(app).delete(`/blog-posts/${res.body[0].id}`);
 				})

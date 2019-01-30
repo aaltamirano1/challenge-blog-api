@@ -9,7 +9,7 @@ var blogPostTemplate =
   "</div>" +
   "</li>";
 var serverBase = "//localhost:8080/";
-var BLOG_POST_URL = serverBase + "blog-posts";
+var BLOG_POST_URL = serverBase + "posts";
 
 function getAndDisplayBlogPosts() {
   console.log("Retrieving blog posts");
